@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Du Bian | Personal Homepage</title>
+    <meta
+      name="description"
+      content="Du Bian (PKUDBA) academic-style personal homepage: bio, news, selected projects, and contact."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+
+      :root {
+        --paper: #ffffff;
+        --bg: #e6e6e6;
+        --ink: #272727;
+        --sub: #555;
+        --title: #1d5ca1;
+        --link: #1c6ebd;
+        --line: #d7d7d7;
+        --muted: #f7f7f7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Source Sans 3", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 8% 6%, rgba(100, 100, 100, 0.1), transparent 28%),
+          radial-gradient(circle at 92% 9%, rgba(130, 130, 130, 0.1), transparent 33%),
+          var(--bg);
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .wrapper {
+        width: min(1080px, 94vw);
+        margin: 18px auto 30px;
+        background: var(--paper);
+        border: 1px solid #d0d0d0;
+        box-shadow: 0 14px 34px rgba(38, 38, 38, 0.15);
+      }
+
+      .inner {
+        padding: 22px 30px 26px;
+      }
+
+      .topnav {
+        display: flex;
+        gap: 14px;
+        font-size: 0.96rem;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+      }
+
+      .profile {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+
+      .name {
+        margin: 0;
+        font-family: "Crimson Pro", serif;
+        font-size: clamp(1.85rem, 4vw, 2.35rem);
+        line-height: 1.08;
+        color: #154a83;
+      }
+
+      .subline {
+        margin-top: 6px;
+        color: var(--sub);
+      }
+
+      .meta {
+        margin-top: 9px;
+        display: grid;
+        gap: 2px;
+        font-size: 0.95rem;
+      }
+
+      .quick-links {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+        font-size: 0.92rem;
+      }
+
+      .avatar {
+        justify-self: end;
+        width: 200px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border: 1px solid #cbcbcb;
+        background: #f0f0f0;
+      }
+
+      h2 {
+        margin: 18px 0 7px;
+        color: var(--title);
+        font-size: 1.15rem;
+        font-family: "Crimson Pro", serif;
+        border-bottom: 1px solid #ebebeb;
+        padding-bottom: 4px;
+      }
+
+      p {
+        margin: 7px 0;
+      }
+
+      .news {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .news li {
+        margin: 5px 0;
+      }
+
+      .projects {
+        display: grid;
+        gap: 12px;
+      }
+
+      .entry {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 11px;
+        background: var(--muted);
+        border: 1px solid #ececec;
+        padding: 9px;
+      }
+
+      .thumb {
+        border: 1px solid #dbdbdb;
+        min-height: 98px;
+        display: grid;
+        place-items: center;
+        font-family: "Crimson Pro", serif;
+        font-size: 0.95rem;
+        color: #184a80;
+        background:
+          linear-gradient(130deg, rgba(30, 88, 152, 0.2), rgba(96, 150, 205, 0.12)),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5) 9px,
+            rgba(235, 241, 250, 0.68) 9px,
+            rgba(235, 241, 250, 0.68) 18px
+          );
+      }
+
+      .entry-title {
+        margin: 0;
+        font-size: 1rem;
+        color: #1d1d1d;
+      }
+
+      .entry-meta {
+        margin-top: 3px;
+        color: #5f5f5f;
+        font-size: 0.9rem;
+      }
+
+      .entry-desc {
+        margin-top: 6px;
+        font-size: 0.94rem;
+      }
+
+      .entry-links {
+        margin-top: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        font-size: 0.9rem;
+      }
+
+      .two-cols {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .plain-list {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .plain-list li {
+        margin: 5px 0;
+      }
+
+      footer {
+        margin-top: 18px;
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+        color: #666;
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 840px) {
+        .inner {
+          padding: 18px 16px 20px;
+        }
+
+        .profile {
+          grid-template-columns: 1fr;
+        }
+
+        .avatar {
+          width: min(250px, 100%);
+          justify-self: start;
+        }
+
+        .entry {
+          grid-template-columns: 1fr;
+        }
+
+        .two-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrapper">
+      <div class="inner">
+        <nav class="topnav" aria-label="主导航">
+          <a href="#bio">Bio</a>
+          <a href="#news">News</a>
+          <a href="#projects">Selected Projects</a>
+          <a href="#service">Service</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <section class="profile" id="top">
+          <div>
+            <h1 class="name">Du Bian (PKUDBA)</h1>
+            <div class="subline">Undergraduate Student, School of Intelligence Science and Technology</div>
+            <div class="meta">
+              <span>Peking University, Beijing, China</span>
+              <span>Email: <a href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></span>
+              <span>Interests: Data Intelligence, LLM Systems, AI Product Engineering</span>
+            </div>
+            <div class="quick-links">
+              <a href="https://github.com/pkudba" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://pkudba.github.io" target="_blank" rel="noreferrer">Homepage</a>
+              <a href="mailto:scncdba@gmail.com">Email</a>
+            </div>
+          </div>
+          <img
+            class="avatar"
+            id="profile-avatar"
+            src="https://avatars.githubusercontent.com/u/89632734?v=4"
+            alt="Du Bian avatar"
+          />
+        </section>
+
+        <section id="bio">
+          <h2>Biography</h2>
+          <p>
+            I am an undergraduate at Peking University and currently focus on building practical AI systems
+            that connect model capability with real product value. I enjoy turning ambiguous ideas into
+            clear, reliable, and deployable workflows.
+          </p>
+          <p>
+            我的兴趣集中在数据智能、LLM 应用架构与自动化系统设计，尤其关注从原型到稳定交付的工程过程。
+            这个主页会持续更新我的项目进展、学习记录和公开分享内容。
+          </p>
+        </section>
+
+        <section id="news">
+          <h2>News</h2>
+          <ul class="news">
+            <li><strong>[2026-04]</strong> Rebuilt my personal homepage in an academic-style layout.</li>
+            <li><strong>[2026-03]</strong> Started a small benchmark project on LLM-assisted data workflows.</li>
+            <li><strong>[2026-02]</strong> Organized notes and templates for reproducible AI experiments.</li>
+            <li><strong>[2025-12]</strong> Built an internal tool for semi-automatic report generation.</li>
+          </ul>
+        </section>
+
+        <section id="projects">
+          <h2>Selected Projects</h2>
+          <div class="projects">
+            <article class="entry">
+              <div class="thumb">PROJECT 01</div>
+              <div>
+                <h3 class="entry-title">Data CoPilot for Weekly Insight Reporting</h3>
+                <div class="entry-meta">Du Bian, 2026</div>
+                <p class="entry-desc">
+                  An AI-assisted pipeline for collecting, structuring, and summarizing weekly metrics into
+                  concise executive-facing reports.
+                </p>
+                <div class="entry-links">
+                  <a href="#">Project</a>
+                  <a href="#">Demo</a>
+                  <a href="#">Notes</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="thumb">PROJECT 02</div>
+              <div>
+                <h3 class="entry-title">Prompt Evaluation Toolkit for Chinese QA Tasks</h3>
+                <div class="entry-meta">Du Bian, 2026</div>
+                <p class="entry-desc">
+                  A lightweight framework to compare prompt variants with fixed test sets and produce
+                  interpretable error slices for iteration.
+                </p>
+                <div class="entry-links">
+                  <a href="#">Project</a>
+                  <a href="#">Benchmark</a>
+                  <a href="#">Code</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="thumb">PROJECT 03</div>
+              <div>
+                <h3 class="entry-title">Interactive Knowledge Cards for Course Learning</h3>
+                <div class="entry-meta">Du Bian, 2025</div>
+                <p class="entry-desc">
+                  A web-based study aid that transforms lecture notes into searchable knowledge cards with
+                  spaced-repetition reminders.
+                </p>
+                <div class="entry-links">
+                  <a href="#">Project</a>
+                  <a href="#">Preview</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="two-cols" id="service">
+          <div>
+            <h2>Service & Activities</h2>
+            <ul class="plain-list">
+              <li>Student organizer for AI reading-group discussions.</li>
+              <li>Volunteer mentor for newcomers in programming fundamentals.</li>
+              <li>Frequent sharer of project retrospectives and engineering notes.</li>
+            </ul>
+          </div>
+          <div id="contact">
+            <h2>Contact</h2>
+            <ul class="plain-list">
+              <li>Email: <a href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></li>
+              <li>GitHub: <a href="https://github.com/pkudba" target="_blank" rel="noreferrer">pkudba</a></li>
+              <li>Homepage: <a href="https://pkudba.github.io" target="_blank" rel="noreferrer">pkudba.github.io</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <footer>
+          Last updated: <span id="year"></span>. Template inspired by academic personal website layouts.
+        </footer>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      (async function loadProfileAvatar() {
+        const avatarEl = document.getElementById("profile-avatar");
+        const parts = [
+          "./assets/b64chunks/profile.b64.01",
+          "./assets/b64chunks/profile.b64.02",
+          "./assets/b64chunks/profile.b64.03",
+          "./assets/b64chunks/profile.b64.04"
+        ];
+        try {
+          const chunks = await Promise.all(parts.map(async (path) => (await fetch(path)).text()));
+          avatarEl.src = "data:image/jpeg;base64," + chunks.join("").trim();
+        } catch (err) {
+          console.warn("Profile photo fallback is used.", err);
+        }
+      })();
+    </script>
+  </body>
+</html>
