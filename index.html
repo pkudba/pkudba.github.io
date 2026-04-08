@@ -273,7 +273,7 @@
           <img
             class="avatar"
             id="profile-avatar"
-            src="https://avatars.githubusercontent.com/u/89632734?v=4"
+            src="./assets/person.jpg"
             alt="Du Bian avatar"
           />
         </section>
@@ -383,22 +383,6 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-
-      (async function loadProfileAvatar() {
-        const avatarEl = document.getElementById("profile-avatar");
-        const parts = [
-          "./assets/b64chunks/profile.b64.01",
-          "./assets/b64chunks/profile.b64.02",
-          "./assets/b64chunks/profile.b64.03",
-          "./assets/b64chunks/profile.b64.04"
-        ];
-        try {
-          const chunks = await Promise.all(parts.map(async (path) => (await fetch(path)).text()));
-          avatarEl.src = "data:image/jpeg;base64," + chunks.join("").trim();
-        } catch (err) {
-          console.warn("Profile photo fallback is used.", err);
-        }
-      })();
     </script>
   </body>
 </html>
