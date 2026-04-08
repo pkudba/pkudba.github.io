@@ -108,6 +108,29 @@
         font-size: 0.92rem;
       }
 
+      .link-with-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .link-with-icon::before {
+        line-height: 1;
+        font-size: 0.95em;
+      }
+
+      .icon-scholar::before {
+        content: "🎓";
+      }
+
+      .icon-github::before {
+        content: "🐙";
+      }
+
+      .icon-email::before {
+        content: "✉";
+      }
+
       .avatar {
         justify-self: end;
         width: 200px;
@@ -323,9 +346,9 @@
               <span>Interests: Computer Vision, 3D/4D Generation/Reconstruction, World Modeling, Adversarial Robustness</span>
             </div>
             <div class="quick-links">
-              <a href="https://github.com/pkudba" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Scholar</a>
-              <a href="mailto:scncdba@gmail.com">Email</a>
+              <a class="link-with-icon icon-github" href="https://github.com/pkudba" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="link-with-icon icon-scholar" href="https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Scholar</a>
+              <a class="link-with-icon icon-email" href="mailto:scncdba@gmail.com">Email</a>
             </div>
           </div>
           <img
@@ -512,9 +535,9 @@
         <section id="contact" class="cv-section">
           <h2>Contact</h2>
           <ul class="plain-list">
-            <li>Email: <a href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></li>
-            <li>GitHub: <a href="https://github.com/pkudba" target="_blank" rel="noreferrer">pkudba</a></li>
-            <li>Scholar: <a href="https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a></li>
+            <li>Email: <a class="link-with-icon icon-email" href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></li>
+            <li>GitHub: <a class="link-with-icon icon-github" href="https://github.com/pkudba" target="_blank" rel="noreferrer">pkudba</a></li>
+            <li>Scholar: <a class="link-with-icon icon-scholar" href="https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a></li>
           </ul>
         </section>
 
