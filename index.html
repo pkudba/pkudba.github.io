@@ -197,6 +197,44 @@
         font-size: 0.9rem;
       }
 
+      .cv-section {
+        margin-top: 16px;
+      }
+
+      .resume-list {
+        margin: 0;
+        padding-left: 20px;
+        list-style: square;
+      }
+
+      .resume-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 14px;
+        margin: 7px 0;
+      }
+
+      .resume-main {
+        flex: 1;
+      }
+
+      .resume-year {
+        white-space: nowrap;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .resume-sublist {
+        margin: 6px 0 0;
+        padding-left: 20px;
+        list-style: square;
+      }
+
+      .resume-sublist li {
+        margin: 4px 0;
+      }
+
       .two-cols {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -220,6 +258,14 @@
         font-size: 0.88rem;
       }
 
+      .footer-sign {
+        margin-top: 6px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        color: #2c2c2c;
+        font-size: 1.02rem;
+      }
+
       @media (max-width: 840px) {
         .inner {
           padding: 18px 16px 20px;
@@ -238,6 +284,12 @@
           grid-template-columns: 1fr;
         }
 
+        .resume-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+        }
+
         .two-cols {
           grid-template-columns: 1fr;
         }
@@ -250,8 +302,10 @@
         <nav class="topnav" aria-label="Main navigation">
           <a href="#bio">Bio</a>
           <a href="#news">News</a>
-          <a href="#projects">Selected Projects</a>
-          <a href="#service">Service</a>
+          <a href="#projects">Selected Papers</a>
+          <a href="#education">Education</a>
+          <a href="#honors">Honors & Awards</a>
+          <a href="#services">Services</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -307,10 +361,10 @@
         </section>
 
         <section id="projects">
-          <h2>Selected Projects</h2>
+          <h2>Selected Papers</h2>
           <div class="projects">
             <article class="entry">
-              <div class="thumb">PROJECT 01</div>
+              <div class="thumb">PAPER 01</div>
               <div>
                 <h3 class="entry-title">Data CoPilot for Weekly Insight Reporting</h3>
                 <div class="entry-meta">Du Bian, 2026</div>
@@ -327,7 +381,7 @@
             </article>
 
             <article class="entry">
-              <div class="thumb">PROJECT 02</div>
+              <div class="thumb">PAPER 02</div>
               <div>
                 <h3 class="entry-title">Prompt Evaluation Toolkit for Chinese QA Tasks</h3>
                 <div class="entry-meta">Du Bian, 2026</div>
@@ -344,7 +398,7 @@
             </article>
 
             <article class="entry">
-              <div class="thumb">PROJECT 03</div>
+              <div class="thumb">PAPER 03</div>
               <div>
                 <h3 class="entry-title">Interactive Knowledge Cards for Course Learning</h3>
                 <div class="entry-meta">Du Bian, 2025</div>
@@ -361,27 +415,67 @@
           </div>
         </section>
 
-        <section class="two-cols" id="service">
-          <div>
-            <h2>Service & Activities</h2>
-            <ul class="plain-list">
-              <li>Student organizer for AI reading-group discussions.</li>
-              <li>Volunteer mentor for newcomers in programming fundamentals.</li>
-              <li>Frequent sharer of project retrospectives and engineering notes.</li>
-            </ul>
-          </div>
-          <div id="contact">
-            <h2>Contact</h2>
-            <ul class="plain-list">
-              <li>Email: <a href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></li>
-              <li>GitHub: <a href="https://github.com/pkudba" target="_blank" rel="noreferrer">pkudba</a></li>
-              <li>Scholar: <a href="https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a></li>
-            </ul>
-          </div>
+        <section id="education" class="cv-section">
+          <h2>🎓 Education</h2>
+          <ul class="resume-list">
+            <li class="resume-item">
+              <span class="resume-main"><strong>Ph.D. Student</strong>, Wangxuan Institute of Computer Technology, <strong>Peking University</strong></span>
+              <span class="resume-year">2022 - Present</span>
+            </li>
+            <li class="resume-item">
+              <span class="resume-main"><strong>Bachelor's Degree</strong>, Turing Class, <strong>Peking University</strong></span>
+              <span class="resume-year">2018 - 2022</span>
+            </li>
+          </ul>
+        </section>
+
+        <section id="honors" class="cv-section">
+          <h2>🏆 Honors & Awards</h2>
+          <ul class="resume-list">
+            <li class="resume-item">
+              <span class="resume-main"><strong>Outstanding Student</strong>, Peking University</span>
+              <span class="resume-year">2025</span>
+            </li>
+            <li class="resume-item">
+              <span class="resume-main">Academic Merit Scholarship, Peking University</span>
+              <span class="resume-year">2024</span>
+            </li>
+            <li class="resume-item">
+              <span class="resume-main">Excellent Undergraduate Thesis, Peking University</span>
+              <span class="resume-year">2022</span>
+            </li>
+          </ul>
+        </section>
+
+        <section id="services" class="cv-section">
+          <h2>📝 Services</h2>
+          <ul class="resume-list">
+            <li>
+              <div class="resume-main"><strong>Conference Reviewer</strong></div>
+              <ul class="resume-sublist">
+                <li>Computer Vision: CVPR, ICCV, ECCV (updating)</li>
+                <li>Machine Learning: NeurIPS, ICLR, ICML (updating)</li>
+              </ul>
+            </li>
+            <li class="resume-item">
+              <span class="resume-main"><strong>Journal Reviewer</strong>: TPAMI, IJCV, TMM (updating)</span>
+              <span class="resume-year">Ongoing</span>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contact" class="cv-section">
+          <h2>Contact</h2>
+          <ul class="plain-list">
+            <li>Email: <a href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></li>
+            <li>GitHub: <a href="https://github.com/pkudba" target="_blank" rel="noreferrer">pkudba</a></li>
+            <li>Scholar: <a href="https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a></li>
+          </ul>
         </section>
 
         <footer>
-          Last updated: <span id="year"></span>. Template inspired by academic personal website layouts.
+          Last updated: <span id="year"></span>.
+          <div class="footer-sign">Du Bi'an</div>
         </footer>
       </div>
     </main>
