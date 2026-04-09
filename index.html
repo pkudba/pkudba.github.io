@@ -6,27 +6,45 @@
     <title>Bi'an Du - Homepage</title>
     <meta
       name="description"
-      content="Bi'an Du (杜毕安) academic homepage at Peking University: bio, selected papers, services, and contact."
+      content="Bi'an Du (杜毕安, also known as Bian Du / Du Bian / DBA) academic homepage at Peking University: bio, selected papers, services, and contact."
     />
+    <meta name="author" content="Bi'an Du (杜毕安)" />
     <meta
       name="keywords"
-      content="Bi'an Du, Bian Du, Du Bian, 杜毕安, PKUDBA, Peking University, Computer Vision, 3D/4D Generation"
+      content="Bi'an Du, Bian Du, Du Bian, dba, 杜毕安, PKUDBA, Peking University, Computer Vision, 3D/4D Generation"
     />
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow" />
+    <meta name="baiduspider" content="index,follow" />
     <meta property="og:title" content="Bi'an Du - Homepage" />
     <meta
       property="og:description"
-      content="Bi'an Du (杜毕安), Ph.D. Candidate at Wangxuan Institute of Computer Technology, Peking University."
+      content="Bi'an Du (杜毕安, Bian Du, Du Bian, DBA), Ph.D. Candidate at Wangxuan Institute of Computer Technology, Peking University."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pkudba.github.io/" />
+    <meta property="og:site_name" content="Bi'an Du - Homepage" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bi'an Du - Homepage" />
+    <meta
+      name="twitter:description"
+      content="Bi'an Du (杜毕安) personal academic homepage."
+    />
     <link rel="canonical" href="https://pkudba.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://pkudba.github.io/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://pkudba.github.io/" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Bi'an Du",
-        "alternateName": ["杜毕安", "Du Bian", "Bian Du"],
+        "alternateName": ["杜毕安", "Du Bian", "Bian Du", "DBA"],
         "url": "https://pkudba.github.io/",
+        "sameAs": [
+          "https://github.com/pkudba",
+          "https://scholar.google.com/citations?user=YDvr07IAAAAJ&hl=zh-CN&oi=ao"
+        ],
         "affiliation": {
           "@type": "CollegeOrUniversity",
           "name": "Peking University"
@@ -444,6 +462,7 @@
               <span>Beijing, People's Republic of China</span>
               <span>Email: <a href="mailto:scncdba@gmail.com">scncdba@gmail.com</a></span>
               <span>Interests: Computer Vision, 3D/4D Generation/Reconstruction, World Modeling, Adversarial Robustness</span>
+              <span>Name aliases: Bi'an Du, Bian Du, Du Bian, DBA, 杜毕安</span>
             </div>
             <div class="quick-links">
               <a class="link-with-icon icon-github" href="https://github.com/pkudba" target="_blank" rel="noreferrer">GitHub</a>
@@ -489,6 +508,29 @@
         <section id="projects">
           <h2>Selected Papers</h2>
           <div class="projects">
+            <article class="entry paper-feature">
+              <div class="paper-thumb-wrap">
+                <span class="paper-thumb-badge">CVPR 2024</span>
+                <img class="paper-thumb-image" src="./assets/papers/3dhpa-teaser.png" alt="Figure of Generative 3D Part Assembly via Part-Whole-Hierarchy Message Passing" />
+              </div>
+              <div>
+                <ul class="paper-points">
+                  <li>
+                    <h3 class="paper-title">Generative 3D Part Assembly via Part-Whole-Hierarchy Message Passing</h3>
+                    <div class="paper-authors"><strong>Bi'an Du</strong>, Xiang Gao, Wei Hu, Renjie Liao</div>
+                    <div class="paper-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024</em></div>
+                    <div class="paper-links">[<a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Du_Generative_3D_Part_Assembly_via_Part-Whole-Hierarchy_Message_Passing_CVPR_2024_paper.pdf" target="_blank" rel="noreferrer">Paper</a>] [<a href="https://github.com/pkudba/3DHPA" target="_blank" rel="noreferrer">Code</a>]</div>
+                  </li>
+                  <li>
+                    <strong>TL;DR:</strong> This work introduces a part-whole-hierarchy message passing framework for
+                    generative 3D part assembly. By first estimating latent super-part poses and then refining
+                    part-level poses with hierarchical interactions, it improves assembly accuracy, connectivity,
+                    and interpretability on PartNet.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
             <article class="entry paper-feature">
               <div class="paper-thumb-wrap">
                 <span class="paper-thumb-badge">TPAMI 2023</span>
