@@ -3,11 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Du Bian | Personal Homepage</title>
+    <title>Bi'an Du - Homepage</title>
     <meta
       name="description"
-      content="Du Bian (PKUDBA) academic-style personal homepage: bio, news, selected projects, and contact."
+      content="Bi'an Du (杜毕安) academic homepage at Peking University: bio, selected papers, services, and contact."
     />
+    <meta
+      name="keywords"
+      content="Bi'an Du, Bian Du, Du Bian, 杜毕安, PKUDBA, Peking University, Computer Vision, 3D/4D Generation"
+    />
+    <meta property="og:title" content="Bi'an Du - Homepage" />
+    <meta
+      property="og:description"
+      content="Bi'an Du (杜毕安), Ph.D. Candidate at Wangxuan Institute of Computer Technology, Peking University."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pkudba.github.io/" />
+    <link rel="canonical" href="https://pkudba.github.io/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bi'an Du",
+        "alternateName": ["杜毕安", "Du Bian", "Bian Du"],
+        "url": "https://pkudba.github.io/",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Peking University"
+        },
+        "email": "mailto:scncdba@gmail.com"
+      }
+    </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap");
 
@@ -411,7 +437,7 @@
 
         <section class="profile" id="top">
           <div>
-            <h1 class="name">Du Bi'an (&#26460;&#27605;&#23433;)</h1>
+            <h1 class="name">Bi'an Du (&#26460;&#27605;&#23433;)</h1>
             <div class="subline">Ph.D. Candidate</div>
             <div class="meta">
               <span>Wangxuan Institute of Computer Technology, Peking University</span>
@@ -429,13 +455,13 @@
             class="avatar"
             id="profile-avatar"
             src="./assets/person.jpg"
-            alt="Du Bi'an avatar"
+            alt="Bi'an Du avatar"
           />
         </section>
         <section id="bio">
           <h2>Biography</h2>
           <p>
-            Du Bi'an is a <strong>fourth-year Ph.D. student</strong> at the Wangxuan Institute of Computer
+            Bi'an Du is a <strong>fourth-year Ph.D. student</strong> at the Wangxuan Institute of Computer
             Technology, Peking University, advised by <strong>Prof. Wei Hu</strong>. He received his bachelor's
             degree from Peking University in 2022, where he studied in the <strong>Turing Class</strong>. His
             research focuses on Computer Vision, with primary interests in
@@ -465,6 +491,29 @@
           <div class="projects">
             <article class="entry paper-feature">
               <div class="paper-thumb-wrap">
+                <span class="paper-thumb-badge">TPAMI 2023</span>
+                <img class="paper-thumb-image" src="./assets/papers/deep-rs-teaser.png" alt="Figure of Deep Point Set Resampling via Gradient Fields" />
+              </div>
+              <div>
+                <ul class="paper-points">
+                  <li>
+                    <h3 class="paper-title">Deep Point Set Resampling via Gradient Fields</h3>
+                    <div class="paper-authors">Haolan Chen, <strong>Bi'an Du</strong>, Shitong Luo, Wei Hu</div>
+                    <div class="paper-venue"><em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2023</em></div>
+                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2111.02045" target="_blank" rel="noreferrer">Paper</a>] [<a href="https://github.com/ChenhLiwnl/deep-rs" target="_blank" rel="noreferrer">Code</a>]</div>
+                  </li>
+                  <li>
+                    <strong>TL;DR:</strong> This work formulates point cloud restoration as gradient-field learning and
+                    performs iterative gradient ascent to move degraded samples toward clean underlying surfaces.
+                    A continuous gradient prior enables strong denoising and upsampling performance across noisy
+                    and sparse point cloud settings.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="entry paper-feature">
+              <div class="paper-thumb-wrap">
                 <span class="paper-thumb-badge">ACM MM 2021</span>
                 <img class="paper-thumb-image" src="./assets/papers/scl-figure2.png" alt="Figure 2 of SCL paper" />
               </div>
@@ -483,56 +532,6 @@
                     features and improves transfer performance on downstream classification and segmentation tasks.
                   </li>
                 </ul>
-              </div>
-            </article>
-
-            <article class="entry">
-              <div class="thumb">PAPER 01</div>
-              <div>
-                <h3 class="entry-title">Data CoPilot for Weekly Insight Reporting</h3>
-                <div class="entry-meta">Du Bian, 2026</div>
-                <p class="entry-desc">
-                  An AI-assisted pipeline for collecting, structuring, and summarizing weekly metrics into
-                  concise executive-facing reports.
-                </p>
-                <div class="entry-links">
-                  <a href="#">Project</a>
-                  <a href="#">Demo</a>
-                  <a href="#">Notes</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="entry">
-              <div class="thumb">PAPER 02</div>
-              <div>
-                <h3 class="entry-title">Prompt Evaluation Toolkit for Chinese QA Tasks</h3>
-                <div class="entry-meta">Du Bian, 2026</div>
-                <p class="entry-desc">
-                  A lightweight framework to compare prompt variants with fixed test sets and produce
-                  interpretable error slices for iteration.
-                </p>
-                <div class="entry-links">
-                  <a href="#">Project</a>
-                  <a href="#">Benchmark</a>
-                  <a href="#">Code</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="entry">
-              <div class="thumb">PAPER 03</div>
-              <div>
-                <h3 class="entry-title">Interactive Knowledge Cards for Course Learning</h3>
-                <div class="entry-meta">Du Bian, 2025</div>
-                <p class="entry-desc">
-                  A web-based study aid that transforms lecture notes into searchable knowledge cards with
-                  spaced-repetition reminders.
-                </p>
-                <div class="entry-links">
-                  <a href="#">Project</a>
-                  <a href="#">Preview</a>
-                </div>
               </div>
             </article>
           </div>
@@ -639,7 +638,7 @@
         </section>
 
         <footer>
-          <div class="footer-sign">&copy; Du Bi'an</div>
+          <div class="footer-sign">&copy; Bi'an Du</div>
         </footer>
       </div>
     </main>
