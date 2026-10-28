@@ -208,13 +208,14 @@
 
       .projects {
         display: grid;
-        gap: 12px;
+        gap: 22px;
+        padding: 8px 0 18px;
       }
 
       .projects-note {
-        margin: 2px 0 8px;
-        font-size: 0.9rem;
-        color: #2f2f2f;
+        margin: 4px 0 10px;
+        font-size: 0.86rem;
+        color: #65758a;
       }
 
       .entry {
@@ -271,78 +272,169 @@
       }
 
       .paper-feature {
-        grid-template-columns: 300px 1fr;
-        background: #fff;
-        border-color: #dedede;
+        grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+        gap: 24px;
+        padding: 22px;
+        background: linear-gradient(135deg, #fff, #fcfdff);
+        border: 1px solid #e3eaf3;
+        border-radius: 18px;
+        box-shadow: 0 6px 20px rgba(35, 65, 105, 0.07), 0 2px 5px rgba(35, 65, 105, 0.03);
         align-items: center;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      }
+
+      .paper-feature:focus-within {
+        border-color: #a9c6e9;
+        box-shadow: 0 14px 32px rgba(35, 65, 105, 0.12), 0 3px 8px rgba(35, 65, 105, 0.05);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .paper-feature:hover {
+          transform: translateY(-5px);
+          border-color: #b9cfe9;
+          box-shadow: 0 18px 36px rgba(35, 65, 105, 0.13), 0 4px 10px rgba(35, 65, 105, 0.05);
+        }
       }
 
       .paper-thumb-wrap {
-        position: relative;
         width: 100%;
-        border: 1px solid #dbdbdb;
-        background: #fff;
-        padding: 6px;
+        min-width: 0;
       }
 
       .paper-thumb-badge {
-        position: absolute;
-        top: 6px;
-        left: 6px;
         display: inline-block;
-        padding: 2px 9px 3px;
-        background: #0f4d97;
-        color: #fff;
+        margin-bottom: 10px;
+        padding: 5px 11px;
+        border-radius: 999px;
+        background: #edf4ff;
+        color: #255a9b;
         font-weight: 700;
-        font-size: 0.9rem;
-        line-height: 1.2;
-        letter-spacing: 0.02em;
+        font-size: 0.76rem;
+        line-height: 1.35;
+        letter-spacing: 0.04em;
       }
 
       .paper-thumb-image {
         width: 100%;
         height: auto;
         display: block;
+        border: 1px solid #eaf0f6;
+        border-radius: 9px;
         background: #fff;
-      }
-
-      .paper-thumb-composite .paper-thumb-badge {
-        position: static;
-        margin-bottom: 4px;
       }
 
       .paper-points {
         margin: 0;
-        padding-left: 20px;
-        list-style: square;
+        padding: 0;
+        list-style: none;
       }
 
       .paper-points li {
-        margin: 4px 0 10px;
-        font-size: 1rem;
+        margin: 0;
+      }
+
+      .paper-points li + li {
+        margin-top: 14px;
+        padding: 11px 14px;
+        border-radius: 10px;
+        background: #f3f6fa;
+        color: #526176;
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .paper-points li + li > strong {
+        color: #344e70;
       }
 
       .paper-title {
-        margin: 0 0 2px;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #1d4d88;
+        margin: 0 0 8px;
+        font-size: 1.08rem;
+        line-height: 1.45;
+        color: #24486f;
         font-family: inherit;
         font-weight: 700;
       }
 
       .paper-authors {
-        font-size: 1rem;
+        color: #526176;
+        font-size: 0.93rem;
+        line-height: 1.6;
+      }
+
+      .paper-authors strong {
+        color: #263e5b;
       }
 
       .paper-venue {
-        margin-top: 2px;
-        font-size: 1rem;
+        margin-top: 5px;
+        color: #65758a;
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .paper-venue em {
+        font-style: normal;
       }
 
       .paper-links {
-        margin-top: 4px;
-        font-size: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .paper-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px 12px;
+        border: 1px solid #d9e4f1;
+        border-radius: 8px;
+        background: #fff;
+        color: #2a5c97;
+        font-size: 0.83rem;
+        font-weight: 600;
+        line-height: 1.5;
+        text-decoration: none;
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      .paper-links a::after {
+        content: "\2197";
+        font-size: 0.88em;
+      }
+
+      .paper-links a:first-child {
+        border-color: #285f9f;
+        background: #285f9f;
+        color: #fff;
+      }
+
+      .paper-links a:hover {
+        border-color: #acc6e6;
+        background: #eef4fc;
+      }
+
+      .paper-links a:first-child:hover {
+        border-color: #1e4d84;
+        background: #1e4d84;
+      }
+
+      .paper-links a:focus-visible {
+        outline: 2px solid #477fbe;
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .paper-feature,
+        .paper-links a {
+          transition: none;
+        }
+
+        .paper-feature:hover {
+          transform: none;
+        }
       }
 
       .cv-section {
@@ -435,8 +527,15 @@
           grid-template-columns: 1fr;
         }
 
+        .paper-feature {
+          gap: 18px;
+          padding: 18px;
+          border-radius: 15px;
+        }
+
         .paper-thumb-wrap {
           max-width: 360px;
+          margin-inline: auto;
         }
 
         .resume-line {
@@ -537,7 +636,7 @@
                     <h3 class="paper-title">HierGF: Hierarchical Gaussian Fields via Geometry&#8211;perception Message Passing for Sparse-view 3D Reconstruction</h3>
                     <div class="paper-authors"><strong>Bi'an Du</strong>, Zhimin Zhang, Daizong Liu, Baoquan Chen, Wei Hu</div>
                     <div class="paper-venue"><em>IEEE Transactions on Multimedia (TMM), 2026</em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2610.01056" target="_blank" rel="noreferrer">Paper</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2610.01056" target="_blank" rel="noreferrer">Paper</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> HierGF reconstructs 3D scenes from only a few images using coarse-to-fine
@@ -560,7 +659,7 @@
                     <h3 class="paper-title">Motion Beyond Morphology: Bootstrapping Cross-Category Motion Transfer from Abstract Motion Representations</h3>
                     <div class="paper-authors">Zhixue Fang<sup>*</sup>, Zhimin Zhang<sup>*</sup>, <strong>Bi'an Du</strong>, Zijie Meng, Yan Zhou, Wei Hu, Guoxin Zhang, Pengfei Wan, Kun Gai</div>
                     <div class="paper-venue"><em>arXiv preprint arXiv:2608.01628, <time datetime="2026-08-03">August 3, 2026</time></em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2608.01628" target="_blank" rel="noreferrer">Paper</a>] [<a href="https://miniz233.github.io/MotionBeyondMorphology/" target="_blank" rel="noreferrer">Project</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2608.01628" target="_blank" rel="noreferrer">Paper</a> <a href="https://miniz233.github.io/MotionBeyondMorphology/" target="_blank" rel="noreferrer">Project</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work transfers video motion across objects with different morphologies
@@ -583,7 +682,7 @@
                     <h3 class="paper-title">View-Consistent 3D Scene Editing via Dual-Path Structural Correspondense and Semantic Continuity</h3>
                     <div class="paper-authors">Pufan Li, <strong>Bi'an Du</strong>, Shenghe Zheng, Junyi Yao, Wei Hu</div>
                     <div class="paper-venue"><em>arXiv preprint arXiv:2604.17801, <time datetime="2026-04-20">April 20, 2026</time></em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2604.17801" target="_blank" rel="noreferrer">Paper</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2604.17801" target="_blank" rel="noreferrer">Paper</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work improves multi-view consistency in text-driven 3D scene editing
@@ -606,7 +705,7 @@
                     <h3 class="paper-title">From Part to Whole: 3D Generative World Model with an Adaptive Structural Hierarchy</h3>
                     <div class="paper-authors"><strong>Bi'an Du</strong>, Daizong Liu, Pufan Li, Wei Hu</div>
                     <div class="paper-venue"><em>IEEE International Conference on Multimedia and Expo (ICME), 2026</em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2603.21557" target="_blank" rel="noreferrer">Paper</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2603.21557" target="_blank" rel="noreferrer">Paper</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work proposes a part-to-whole 3D generative world model that learns an
@@ -629,7 +728,7 @@
                     <h3 class="paper-title">Behave Your Motion: Habit-preserved Cross-category Animal Motion Transfer</h3>
                     <div class="paper-authors">Zhimin Zhang<sup>*</sup>, <strong>Bi'an Du<sup>*</sup></strong>, Caoyuan Ma, Zheng Wang, Wei Hu</div>
                     <div class="paper-venue"><em>Proceedings of the 33rd ACM International Conference on Multimedia (ACM MM 2025)</em></div>
-                    <div class="paper-links">[<a href="https://dl.acm.org/doi/pdf/10.1145/3746027.3755031" target="_blank" rel="noreferrer">Paper</a>]</div>
+                    <div class="paper-links"><a href="https://dl.acm.org/doi/pdf/10.1145/3746027.3755031" target="_blank" rel="noreferrer">Paper</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work explores cross-category animal motion transfer with an emphasis on
@@ -651,7 +750,7 @@
                     <h3 class="paper-title">HierOctFusion: Multi-scale Octree-based 3D Shape Generation via Part-Whole-Hierarchy Message Passing</h3>
                     <div class="paper-authors">Xinjie Gao<sup>*</sup>, <strong>Bi'an Du<sup>*</sup></strong>, Wei Hu</div>
                     <div class="paper-venue"><em>arXiv preprint arXiv:2508.11106, <time datetime="2025-08-14">August 14, 2025</time></em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2508.11106" target="_blank" rel="noreferrer">Paper</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2508.11106" target="_blank" rel="noreferrer">Paper</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> HierOctFusion generates 3D shapes with part-aware, multi-scale octree
@@ -674,7 +773,7 @@
                     <h3 class="paper-title">Geometry and Perception Guided Gaussians for Multiview-consistent 3D Generation from a Single Image</h3>
                     <div class="paper-authors">Pufan Li<sup>*</sup>, <strong>Bi'an Du<sup>*</sup></strong>, Wei Hu</div>
                     <div class="paper-venue"><em>arXiv preprint arXiv:2506.21152, <time datetime="2025-06-26">June 26, 2025</time></em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2506.21152" target="_blank" rel="noreferrer">Paper</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2506.21152" target="_blank" rel="noreferrer">Paper</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work generates detailed 3D objects from a single image by integrating
@@ -697,7 +796,7 @@
                     <h3 class="paper-title">Generative 3D Part Assembly via Part-Whole-Hierarchy Message Passing</h3>
                     <div class="paper-authors"><strong>Bi'an Du</strong>, Xiang Gao, Wei Hu, Renjie Liao</div>
                     <div class="paper-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024</em></div>
-                    <div class="paper-links">[<a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Du_Generative_3D_Part_Assembly_via_Part-Whole-Hierarchy_Message_Passing_CVPR_2024_paper.pdf" target="_blank" rel="noreferrer">Paper</a>] [<a href="https://github.com/pkudba/3DHPA" target="_blank" rel="noreferrer">Code</a>]</div>
+                    <div class="paper-links"><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Du_Generative_3D_Part_Assembly_via_Part-Whole-Hierarchy_Message_Passing_CVPR_2024_paper.pdf" target="_blank" rel="noreferrer">Paper</a> <a href="https://github.com/pkudba/3DHPA" target="_blank" rel="noreferrer">Code</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work introduces a part-whole-hierarchy message passing framework for
@@ -720,7 +819,7 @@
                     <h3 class="paper-title">Deep Point Set Resampling via Gradient Fields</h3>
                     <div class="paper-authors">Haolan Chen*, <strong>Bi'an Du*</strong>, Shitong Luo, Wei Hu</div>
                     <div class="paper-venue"><em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2023</em></div>
-                    <div class="paper-links">[<a href="https://arxiv.org/pdf/2111.02045" target="_blank" rel="noreferrer">Paper</a>] [<a href="https://github.com/ChenhLiwnl/deep-rs" target="_blank" rel="noreferrer">Code</a>]</div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2111.02045" target="_blank" rel="noreferrer">Paper</a> <a href="https://github.com/ChenhLiwnl/deep-rs" target="_blank" rel="noreferrer">Code</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work formulates point cloud restoration as gradient-field learning and
@@ -743,7 +842,7 @@
                     <h3 class="paper-title">Self-Contrastive Learning with Hard Negative Sampling for Self-supervised Point Cloud Learning</h3>
                     <div class="paper-authors"><strong>Bi'an Du</strong>, Xiang Gao, Wei Hu, Xin Li</div>
                     <div class="paper-venue"><em>Proceedings of the 29th ACM International Conference on Multimedia (ACM MM 2021)</em></div>
-                    <div class="paper-links">[<a href="https://dl.acm.org/doi/pdf/10.1145/3474085.3475458" target="_blank" rel="noreferrer">Paper</a>] [<a href="https://github.com/pkudba/SCL" target="_blank" rel="noreferrer">Code</a>]</div>
+                    <div class="paper-links"><a href="https://dl.acm.org/doi/pdf/10.1145/3474085.3475458" target="_blank" rel="noreferrer">Paper</a> <a href="https://github.com/pkudba/SCL" target="_blank" rel="noreferrer">Code</a></div>
                   </li>
                   <li>
                     <strong>TL;DR:</strong> This work proposes a self-contrastive learning framework with hard negative
