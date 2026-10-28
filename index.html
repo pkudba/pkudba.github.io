@@ -57,13 +57,13 @@
 
       :root {
         --paper: #ffffff;
-        --bg: #e6e6e6;
-        --ink: #272727;
-        --sub: #555;
-        --title: #1d5ca1;
-        --link: #1c6ebd;
-        --line: #d7d7d7;
-        --muted: #f7f7f7;
+        --bg: #f1f5f9;
+        --ink: #28394e;
+        --sub: #65758a;
+        --title: #24486f;
+        --link: #28639e;
+        --line: #e5edf5;
+        --muted: #f6f8fb;
       }
 
       * {
@@ -80,8 +80,8 @@
         font-family: "Source Sans 3", "Noto Sans SC", "Microsoft YaHei", sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(circle at 8% 6%, rgba(100, 100, 100, 0.1), transparent 28%),
-          radial-gradient(circle at 92% 9%, rgba(130, 130, 130, 0.1), transparent 33%),
+          radial-gradient(circle at 8% 6%, rgba(80, 128, 190, 0.06), transparent 28%),
+          radial-gradient(circle at 92% 9%, rgba(130, 160, 205, 0.05), transparent 33%),
           var(--bg);
         line-height: 1.5;
       }
@@ -95,115 +95,252 @@
         text-decoration: underline;
       }
 
+      a:focus-visible {
+        outline: 2px solid #477fbe;
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+
+      section[id] {
+        scroll-margin-top: 100px;
+      }
+
       .wrapper {
-        width: min(1080px, 94vw);
-        margin: 18px auto 30px;
+        width: min(1080px, calc(100% - 40px));
+        margin: 28px auto 40px;
         background: var(--paper);
-        border: 1px solid #d0d0d0;
-        box-shadow: 0 14px 34px rgba(38, 38, 38, 0.15);
+        border: 1px solid #e1e8f1;
+        border-radius: 24px;
+        box-shadow: 0 18px 60px rgba(35, 65, 105, 0.08);
       }
 
       .inner {
-        padding: 22px 30px 26px;
+        padding: 24px 30px 30px;
       }
 
       .topnav {
+        position: sticky;
+        top: 14px;
+        z-index: 10;
         display: flex;
-        gap: 14px;
-        font-size: 0.96rem;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 12px;
-        margin-bottom: 14px;
+        flex-wrap: wrap;
+        gap: 3px;
+        padding: 7px;
+        margin-bottom: 24px;
+        border: 1px solid #e5ecf5;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 16px rgba(35, 65, 105, 0.05);
+      }
+
+      .topnav a {
+        padding: 7px 11px;
+        border-radius: 9px;
+        color: #526780;
+        font-size: 0.86rem;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .topnav a:hover,
+      .topnav a:focus-visible {
+        background: #edf4ff;
+        color: #255a9b;
+        text-decoration: none;
       }
 
       .profile {
         display: grid;
-        grid-template-columns: 1fr 220px;
-        gap: 18px;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 16px;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        align-items: center;
+        gap: 28px;
+        padding: 28px;
+        border: 1px solid #e3ebf6;
+        border-radius: 20px;
+        background: linear-gradient(115deg, #f3f7ff, #fcfdff 65%, #fff);
       }
 
       .name {
         margin: 0;
         font-family: "Crimson Pro", serif;
-        font-size: clamp(1.85rem, 4vw, 2.35rem);
-        line-height: 1.08;
-        color: #154a83;
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        line-height: 1.16;
+        letter-spacing: -0.025em;
+        color: #234b79;
+      }
+
+      .name-native {
+        display: inline-block;
+        white-space: nowrap;
       }
 
       .subline {
-        margin-top: 6px;
-        color: var(--sub);
+        display: inline-block;
+        margin-top: 11px;
+        padding: 4px 11px;
+        border: 1px solid #dbe7f8;
+        border-radius: 999px;
+        background: #eaf2ff;
+        color: #355d90;
+        font-size: 0.82rem;
+        font-weight: 600;
       }
 
       .meta {
-        margin-top: 9px;
+        margin-top: 15px;
         display: grid;
-        gap: 2px;
-        font-size: 0.95rem;
+        gap: 5px;
+        color: #52657d;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
       }
 
       .quick-links {
-        margin-top: 10px;
+        margin-top: 18px;
         display: flex;
         flex-wrap: wrap;
-        gap: 6px 12px;
-        font-size: 0.92rem;
+        gap: 8px;
+      }
+
+      .quick-links a {
+        padding: 7px 12px;
+        border: 1px solid #dce6f3;
+        border-radius: 9px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(35, 65, 105, 0.03);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .quick-links a:hover {
+        border-color: #acc6e6;
+        background: #edf4ff;
+        text-decoration: none;
       }
 
       .link-with-icon {
         display: inline-flex;
         align-items: center;
-        gap: 4px;
+        gap: 7px;
       }
 
       .link-with-icon::before {
-        line-height: 1;
-        font-size: 0.95em;
+        content: "";
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+        background: currentColor;
+        -webkit-mask: var(--link-icon) center / contain no-repeat;
+        mask: var(--link-icon) center / contain no-repeat;
       }
 
-      .icon-scholar::before {
-        content: "🎓";
+      .icon-scholar {
+        --link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m2 9 10-5 10 5-10 5L2 9Zm4 2v6c4 3 8 3 12 0v-6M22 9v7'/%3E%3C/svg%3E");
       }
 
-      .icon-github::before {
-        content: "🐙";
+      .icon-github {
+        --link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m8 6-6 6 6 6m8-12 6 6-6 6m-5 3 2-18'/%3E%3C/svg%3E");
       }
 
-      .icon-email::before {
-        content: "✉";
+      .icon-email {
+        --link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E");
       }
 
       .avatar {
         justify-self: end;
-        width: 200px;
+        width: 180px;
         aspect-ratio: 4 / 5;
         object-fit: cover;
-        border: 1px solid #cbcbcb;
-        background: #f0f0f0;
+        border: 4px solid #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(35, 65, 105, 0.15);
+        background: #edf2f8;
       }
 
       h2 {
-        margin: 18px 0 7px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 32px 0 16px;
         color: var(--title);
-        font-size: 1.15rem;
+        font-size: 1.35rem;
         font-family: "Crimson Pro", serif;
-        border-bottom: 1px solid #ebebeb;
-        padding-bottom: 4px;
+        line-height: 1.4;
+      }
+
+      h2::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: var(--line);
       }
 
       p {
         margin: 7px 0;
       }
 
+      #bio p {
+        margin: 0 0 12px;
+        color: #46566c;
+        line-height: 1.85;
+      }
+
+      #bio strong {
+        color: #2f4b6c;
+      }
+
       .news {
         margin: 0;
-        padding-left: 18px;
+        padding: 6px 0 0 7px;
+        list-style: none;
       }
 
       .news li {
-        margin: 5px 0;
+        position: relative;
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        align-items: start;
+        gap: 16px;
+        margin: 0;
+        padding: 0 0 16px 22px;
+        border-left: 1px solid #dce6f2;
+        color: #4f6075;
+        font-size: 0.94rem;
+        line-height: 1.65;
+      }
+
+      .news li::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: -4px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #bfcee1;
+        box-shadow: 0 0 0 4px #fff;
+      }
+
+      .news li:first-child::before {
+        background: #3973b5;
+      }
+
+      .news li:last-child {
+        padding-bottom: 0;
+        border-left-color: transparent;
+      }
+
+      .news li > strong {
+        padding: 3px 7px;
+        border-radius: 6px;
+        background: #eff4fb;
+        color: #42658e;
+        font-size: 0.77rem;
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
       }
 
       .projects {
@@ -438,44 +575,105 @@
       }
 
       .cv-section {
-        margin-top: 16px;
+        margin-top: 32px;
       }
 
       .resume-list {
+        display: grid;
+        gap: 10px;
         margin: 0;
-        padding-left: 20px;
-        list-style: disc;
+        padding: 0;
+        list-style: none;
+      }
+
+      #education .resume-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .resume-item {
-        margin: 7px 0;
+        margin: 0;
+        padding: 16px 18px;
+        border: 1px solid #e5ecf5;
+        border-radius: 12px;
+        background: #fbfcff;
+      }
+
+      #honors .resume-item:first-child {
+        border-color: #d2e1f5;
+        background: linear-gradient(110deg, #eff5ff, #fbfdff);
       }
 
       .resume-line {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
-        gap: 14px;
+        align-items: flex-start;
+        gap: 20px;
       }
 
       .resume-main {
         flex: 1;
+        min-width: 0;
+        color: #526176;
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .resume-main strong {
+        color: #314f73;
       }
 
       .resume-year {
+        flex-shrink: 0;
+        padding: 4px 9px;
+        border-radius: 7px;
+        background: #edf3fb;
         white-space: nowrap;
-        color: #333;
+        color: #41648e;
+        font-size: 0.78rem;
         font-weight: 600;
+        line-height: 1.6;
+      }
+
+      #services > .resume-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      #services > .resume-list > li {
+        padding: 18px 20px;
+        border: 1px solid #e5ecf5;
+        border-radius: 14px;
+        background: #f8faff;
+      }
+
+      #services > .resume-list > li:first-child {
+        grid-column: 1 / -1;
       }
 
       .resume-sublist {
-        margin: 6px 0 0;
-        padding-left: 20px;
-        list-style: disc;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
       }
 
       .resume-sublist li {
-        margin: 4px 0;
+        position: relative;
+        margin: 7px 0;
+        padding-left: 13px;
+        color: #526176;
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .resume-sublist li::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #7f9fc5;
       }
 
       .two-cols {
@@ -485,42 +683,93 @@
       }
 
       .plain-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
         margin: 0;
-        padding-left: 18px;
+        padding: 0;
+        list-style: none;
       }
 
       .plain-list li {
-        margin: 5px 0;
+        margin: 0;
+        padding: 16px 18px;
+        border: 1px solid #e5ecf5;
+        border-radius: 12px;
+        background: #f7faff;
+        color: #65758a;
+        font-size: 0.83rem;
+      }
+
+      .plain-list .link-with-icon {
+        display: flex;
+        margin-top: 7px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        overflow-wrap: anywhere;
       }
 
       footer {
-        margin-top: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-top: 32px;
         border-top: 1px solid var(--line);
-        padding-top: 10px;
-        color: #666;
-        font-size: 0.88rem;
+        padding-top: 18px;
+        color: #65758a;
+        font-size: 0.85rem;
       }
 
       .footer-sign {
-        margin-top: 6px;
-        text-align: center;
-        font-family: "Crimson Pro", serif;
-        color: #2c2c2c;
-        font-size: 1.02rem;
+        color: #65758a;
+      }
+
+      .back-to-top {
+        padding: 6px 10px;
+        border-radius: 7px;
+        font-weight: 600;
+      }
+
+      .back-to-top:hover {
+        background: #edf4ff;
+        text-decoration: none;
       }
 
       @media (max-width: 840px) {
+        .wrapper {
+          width: calc(100% - 20px);
+          margin: 10px auto 24px;
+          border-radius: 18px;
+        }
+
         .inner {
-          padding: 18px 16px 20px;
+          padding: 14px 16px 22px;
+        }
+
+        .topnav {
+          top: 8px;
+          margin-bottom: 18px;
+          padding: 5px;
+        }
+
+        .topnav a {
+          padding: 7px 9px;
+          font-size: 0.8rem;
+        }
+
+        section[id] {
+          scroll-margin-top: 126px;
         }
 
         .profile {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(0, 1fr) 140px;
+          gap: 18px;
+          padding: 22px;
         }
 
         .avatar {
-          width: min(250px, 100%);
-          justify-self: start;
+          width: 140px;
         }
 
         .entry {
@@ -539,12 +788,93 @@
         }
 
         .resume-line {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 2px;
+          gap: 12px;
         }
 
+        #education .resume-list,
+        #services > .resume-list,
         .two-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .profile {
+          grid-template-columns: minmax(0, 1fr) 90px;
+          gap: 14px;
+          padding: 20px;
+        }
+
+        .profile > div {
+          display: contents;
+        }
+
+        .avatar {
+          grid-column: 2;
+          grid-row: 1 / 3;
+          justify-self: end;
+          width: 90px;
+          border-width: 3px;
+          border-radius: 13px;
+        }
+
+        .name {
+          grid-column: 1;
+          grid-row: 1;
+          align-self: end;
+          font-size: 1.75rem;
+        }
+
+        .subline {
+          grid-column: 1;
+          grid-row: 2;
+          justify-self: start;
+          align-self: start;
+          margin-top: 0;
+          font-size: 0.76rem;
+        }
+
+        .meta,
+        .quick-links {
+          grid-column: 1 / -1;
+          margin-top: 4px;
+        }
+
+        .quick-links {
+          gap: 6px;
+        }
+
+        .quick-links a {
+          padding: 6px 9px;
+        }
+
+        h2 {
+          margin-top: 28px;
+          font-size: 1.25rem;
+        }
+
+        .news li {
+          grid-template-columns: 80px minmax(0, 1fr);
+          gap: 10px;
+          padding-left: 18px;
+          font-size: 0.9rem;
+        }
+
+        .news li > strong {
+          padding-inline: 4px;
+          font-size: 0.72rem;
+        }
+
+        .resume-item {
+          padding: 14px;
+        }
+
+        #honors .resume-line {
+          flex-direction: column-reverse;
+          gap: 9px;
+        }
+
+        .plain-list {
           grid-template-columns: 1fr;
         }
       }
@@ -565,7 +895,7 @@
 
         <section class="profile" id="top">
           <div>
-            <h1 class="name">Bi'an Du (&#26460;&#27605;&#23433;)</h1>
+            <h1 class="name">Bi'an Du <span class="name-native">(&#26460;&#27605;&#23433;)</span></h1>
             <div class="subline">Ph.D. Candidate</div>
             <div class="meta">
               <span>Wangxuan Institute of Computer Technology, Peking University</span>
@@ -591,13 +921,19 @@
           <p>
             Bi'an Du is a <strong>fourth-year Ph.D. student</strong> at the Wangxuan Institute of Computer
             Technology, Peking University, advised by <strong>Prof. Wei Hu</strong>. He received his bachelor's
-            degree from Peking University in 2022, where he studied in the <strong>Turing Class</strong>. His
+            degree from Peking University in 2022, where he studied in the <strong>Turing Class</strong>.
+          </p>
+          <p>
+            His
             research focuses on Computer Vision, with primary interests in
             <strong>3D/4D generation and reconstruction</strong>, <strong>3D understanding</strong>, and
             <strong>world modeling &#127757;</strong>. More broadly, he is interested in building intelligent
             systems that can generate, perceive, understand, render, and iteratively refine realistic 3D worlds
             in a scalable and interactive manner, with the <strong>long-term goal</strong> of aligning such
-            systems more closely with human cognition and physical understanding of the real world. He has also
+            systems more closely with human cognition and physical understanding of the real world.
+          </p>
+          <p>
+            He has also
             worked on related topics including adversarial robustness, LVLM, video generation, and motion generation.
             He welcomes academic discussions, research collaborations, and related opportunities. &#129309;
           </p>
@@ -964,6 +1300,7 @@
 
         <footer>
           <div class="footer-sign">&copy; Bi'an Du</div>
+          <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
         </footer>
       </div>
     </main>
