@@ -425,6 +425,12 @@
         box-shadow: 0 14px 32px rgba(35, 65, 105, 0.12), 0 3px 8px rgba(35, 65, 105, 0.05);
       }
 
+      .paper-feature-video {
+        grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+        border-color: #cddff3;
+        background: linear-gradient(135deg, #f3f7ff, #fff 70%);
+      }
+
       @media (hover: hover) and (pointer: fine) {
         .paper-feature:hover {
           transform: translateY(-5px);
@@ -458,6 +464,21 @@
         border: 1px solid #eaf0f6;
         border-radius: 9px;
         background: #fff;
+      }
+
+      .paper-thumb-video {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border: 1px solid #dce7f3;
+        border-radius: 10px;
+        background: #f2f5f9;
+      }
+
+      .paper-thumb-video:focus-visible {
+        outline: 2px solid #477fbe;
+        outline-offset: 4px;
       }
 
       .paper-points {
@@ -961,6 +982,41 @@
           <h2>Selected Papers</h2>
           <div class="projects-note">* Equal contribution.</div>
           <div class="projects">
+            <article class="entry paper-feature paper-feature-video">
+              <div class="paper-thumb-wrap">
+                <span class="paper-thumb-badge">arXiv 2026</span>
+                <video
+                  class="paper-thumb-video"
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  preload="none"
+                  poster="https://supra-3d.github.io/PhysAg3D/assets/hero/camera-studio-20261023-poster.webp"
+                  aria-label="PhysAg3D video preview: detailed 3D assets with object-specific physical interactions"
+                >
+                  <source src="https://supra-3d.github.io/PhysAg3D/assets/hero/overview-48s-20261028.mp4" type="video/mp4" />
+                  <a href="https://supra-3d.github.io/PhysAg3D/" target="_blank" rel="noreferrer">Watch the PhysAg3D video on the project page.</a>
+                </video>
+              </div>
+              <div>
+                <ul class="paper-points">
+                  <li>
+                    <h3 class="paper-title">PhysAg3D: Bridging 3D Generative and Agentic Models for High-Fidelity and Physically-Interactive Assets</h3>
+                    <div class="paper-authors"><strong>Bi'an Du<sup>*</sup></strong>, Fanpeng Meng<sup>*</sup>, Jiemin Fang, Chen Yang, Pufan Li, Daizong Liu, Qi Tian, Wei Hu</div>
+                    <div class="paper-venue"><em>arXiv preprint arXiv:2610.39924, <time datetime="2026-10-29">October 29, 2026</time></em></div>
+                    <div class="paper-links"><a href="https://arxiv.org/pdf/2610.39924" target="_blank" rel="noreferrer">Paper</a> <a href="https://supra-3d.github.io/PhysAg3D/" target="_blank" rel="noreferrer">Project</a> <a href="https://github.com/Supra-3D/PhysAg3D" target="_blank" rel="noreferrer">Code</a></div>
+                  </li>
+                  <li>
+                    <strong>TL;DR:</strong> PhysAg3D turns a single image into a detailed, physically interactive 3D
+                    asset by coupling a pretrained 3D generator with a vision-language agent. A hierarchical
+                    interaction representation connects semantic intent, mechanisms, and visible surfaces, while
+                    visual and execution feedback guides local refinement for rigid articulation and compliant deformation.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
             <article class="entry paper-feature">
               <div class="paper-thumb-wrap">
                 <span class="paper-thumb-badge">TMM 2026</span>
@@ -1304,6 +1360,42 @@
         </footer>
       </div>
     </main>
+    <script>
+      (() => {
+        const preview = document.querySelector(".paper-thumb-video");
+        if (!preview) return;
+
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        let inView = false;
+
+        const updatePlayback = () => {
+          if (document.hidden || !inView) {
+            preview.pause();
+            return;
+          }
+          if (!reducedMotion.matches) {
+            preview.play().catch(() => {});
+          }
+        };
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(([entry]) => {
+            inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+            updatePlayback();
+          }, { threshold: [0, 0.25] });
+          observer.observe(preview);
+        } else {
+          inView = true;
+          updatePlayback();
+        }
+
+        document.addEventListener("visibilitychange", updatePlayback);
+        reducedMotion.addEventListener("change", () => {
+          if (reducedMotion.matches) preview.pause();
+          else updatePlayback();
+        });
+      })();
+    </script>
   </body>
 </html>
 
